@@ -4,7 +4,7 @@
 <!-- markdownlint-disable MD041 -->
 
 <h1 align="center">
-  Mantine Admin
+  Tare
 </h1>
 
 <!-- Banner Section -->

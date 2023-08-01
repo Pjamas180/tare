@@ -74,14 +74,13 @@ export function HeroSection() {
 	return (
 		<Container pt="sm" size="lg">
 			<div className={classes.inner}>
-				<Title className={classes.title}>MantineAdmin</Title>
+				<Title className={classes.title}>Tare</Title>
 				<Title className={classes.subtitle}>
-					A Next.js 13 Admin template build with Mantine UI
+					Your personal weight-based food management system!
 				</Title>
 
 				<Text className={classes.description} mt={30}>
-					Build fully functional dashboard web applications with ease – Mantine-Admin
-					includes all components and hooks to cover you in any situation
+					Ease the pain of tracking your food inventory with Tare!
 				</Text>
 
 				<Group mt={40}>

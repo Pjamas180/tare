@@ -4,7 +4,7 @@ import { ImageResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-export const alt = 'Mantine Admin';
+export const alt = 'Tare';
 export const size = {
 	width: 1200,
 	height: 630,
@@ -68,7 +68,7 @@ export default async function Image() {
 						lineHeight: 1.4,
 					}}
 				>
-					<h2 style={{ margin: 0 }}>Mantine Admin</h2>
+					<h2 style={{ margin: 0 }}>Tare</h2>
 					<p style={{ fontSize: 36, margin: 0, opacity: 0.8 }}>
 						A Modern Dashboard with Next.js.
 					</p>

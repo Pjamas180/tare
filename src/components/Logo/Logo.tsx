@@ -15,10 +15,10 @@ export const Logo: React.FC<Props> = () => {
 					fw="bolder"
 					size="xl"
 				>
-					Mantine
-					<Text component="span" fw="normal" c="gray">
-						Admin
-					</Text>
+					Tare
+					{/*<Text component="span" fw="normal" c="gray">*/}
+					{/*	Admin*/}
+					{/*</Text>*/}
 				</Text>
 			</Link>
 		</Flex>

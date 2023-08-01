@@ -14,22 +14,22 @@ export default function Page() {
 						link: '/about',
 						label: 'Home',
 					},
-					{
-						link: '/learn',
-						label: 'Features',
-					},
-					{
-						link: '/pricing',
-						label: 'Pricing',
-					},
+					// {
+					// 	link: '/learn',
+					// 	label: 'Features',
+					// },
+					// {
+					// 	link: '/pricing',
+					// 	label: 'Pricing',
+					// },
 				]}
 			/>
 			<HeroSection />
-			<FeaturesSection
-				title="Features"
-				description="This project is an experiment to see how a modern admin application, with features like auth, API routes, and static pages would work in Next.js 13 app dir."
-			/>
-			<EmailSection />
+			{/*<FeaturesSection*/}
+			{/*	title="Features"*/}
+			{/*	description="This project is an experiment to see how a modern admin application, with features like auth, API routes, and static pages would work in Next.js 13 app dir."*/}
+			{/*/>*/}
+			{/*<EmailSection />*/}
 			<Footer />
 		</LandingContainer>
 	);

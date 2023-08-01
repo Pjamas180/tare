@@ -3,7 +3,7 @@ import { AppProvider } from './provider';
 
 export const metadata = {
 	metadataBase: new URL('https://mantine-admin.vercel.app/'),
-	title: { default: 'Mantine Admin', template: '%s | Mantine Admin' },
+	title: { default: 'Tare', template: '%s | Tare' },
 	description: 'A Modern Dashboard with Next.js.',
 	keywords: [
 		'Next.js',

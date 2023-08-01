@@ -14,6 +14,12 @@ type Person = {
 	state: string;
 };
 
+type Item = {
+	name: string;
+	weight: number;
+	unit: 'lbs' | 'kg';
+};
+
 // nested data is ok, see accessorKeys in ColumnDef below
 const data: Person[] = [
 	{
@@ -63,29 +69,44 @@ const data: Person[] = [
 	},
 ];
 
+const itemData: Item[] = [
+	{
+		name: 'Apples',
+		weight: 10,
+		unit: 'lbs'
+	},
+	{
+		name: 'Bananas',
+		weight: 12,
+		unit: 'kg',
+	},
+	{
+		name: 'Pepper',
+		weight: 0.2,
+		unit: 'lbs',
+	},
+	{
+		name: 'Sale',
+		weight: 0.6,
+		unit: 'lbs',
+	},
+];
+
 export const SimpleTable = () => {
 	//should be memoized or stable
-	const columns = useMemo<MRT_ColumnDef<Person>[]>(
+	const columns = useMemo<MRT_ColumnDef<Item>[]>(
 		() => [
 			{
-				accessorKey: 'name.firstName', //access nested data with dot notation
-				header: 'First Name',
+				accessorKey: 'name', //access nested data with dot notation
+				header: 'Item',
 			},
 			{
-				accessorKey: 'name.lastName',
-				header: 'Last Name',
+				accessorKey: 'weight',
+				header: 'Weight',
 			},
 			{
-				accessorKey: 'address', //normal accessorKey
-				header: 'Address',
-			},
-			{
-				accessorKey: 'city',
-				header: 'City',
-			},
-			{
-				accessorKey: 'state',
-				header: 'State',
+				accessorKey: 'unit',
+				header: 'Unit',
 			},
 		],
 		[]
@@ -97,7 +118,7 @@ export const SimpleTable = () => {
 			<Space h="md" />
 			<MantineReactTable
 				columns={columns}
-				data={data}
+				data={itemData}
 				mantinePaperProps={{ shadow: '0', withBorder: false }}
 			/>
 		</Paper>
