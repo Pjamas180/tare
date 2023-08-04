@@ -28,10 +28,6 @@ const useStyles = createStyles(theme => ({
 	},
 }));
 
-// interface TableScrollAreaProps {
-//   data: Item[];
-// }
-
 export function TableScrollArea({ data }: any) {
 	const { classes, cx } = useStyles();
 	const [scrolled, setScrolled] = useState(false);

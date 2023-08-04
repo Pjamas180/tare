@@ -6,6 +6,7 @@ import { SimpleTable } from '@/components/Table/SimpleTable';
 import { PaginationTable } from '@/components/Table/PaginationTable';
 import { SimpleButton } from '@/components/Button/SimpleButton';
 import { TableScrollArea } from '@/components/Table/TableScrollArea';
+import { InventoryItem, PrismaClient } from "../../../../../prisma/prisma/generated/client";
 
 type Item = {
 	name: string;
@@ -13,41 +14,44 @@ type Item = {
 	unit: 'lbs' | 'kg';
 };
 
-const itemData: Item[] = [
-	{
-		name: 'Apples',
-		weight: 10,
-		unit: 'lbs',
-	},
-	{
-		name: 'Bananas',
-		weight: 12,
-		unit: 'kg',
-	},
-	{
-		name: 'Pepper',
-		weight: 0.2,
-		unit: 'lbs',
-	},
-	{
-		name: 'Sale',
-		weight: 0.6,
-		unit: 'lbs',
-	},
-];
+let itemData: InventoryItem[] = [];
 
-export default function NewInventory() {
-	const onClick = async () => {
-		'use server'
-		const res = await fetch('https://www.google.com');
-		console.dir(res);
-	};
+const newItem = async (data) => {
+	'use server'
+	const prismaClient = new PrismaClient();
+
+	// TODO make a call to the Weight service to get the weight here!
+
+	console.dir(data);
+
+	let itemName = data.get('item');
+	let unit = 'lbs';
+
+	let result = await prismaClient.inventoryItem.create({
+		data: {
+			name: itemName,
+			weight: 100.0,
+			unit: unit,
+			inventoryId: 2,
+		},
+	});
+	itemData.push(result);
+};
+
+const getItemData = async () => {
+	'use server'
+	const prismaClient = new PrismaClient();
+	// itemData = await prismaClient.inventoryItem.findMany();
+	return await prismaClient.inventoryItem.findMany();
+};
+
+export default async function NewInventory() {
+	itemData = await getItemData();
 
 	return (
 		<PageContainer title="New Inventory">
-			<form action={onClick}>
-				<SimpleInput label={'item'} placeholder={'Bananass'} />
-				{/*<SimpleInput label={'weight'} placeholder={'1230'} />*/}
+			<form action={newItem}>
+				<SimpleInput name={'item'} label={'Item'} placeholder={'Bananass'} />
 				<ButtonProgress type={'submit'}></ButtonProgress>
 			</form>
 

@@ -27,6 +27,7 @@ const useStyles = createStyles(theme => ({
 export type ISimpleInputProps = {
 	label: string;
 	placeholder: string;
+	name: string;
 };
 export function SimpleInput(props: ISimpleInputProps) {
 	const { classes } = useStyles();
